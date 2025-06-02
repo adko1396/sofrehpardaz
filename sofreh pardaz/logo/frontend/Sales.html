@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>گزارش‌ها - سفره‌پرداز</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Vazir, sans-serif;
+      margin: 0; padding: 0;
+    }
+    .navbar {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    .restaurant-brand {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .navbar-logo {
+      height: 40px;
+      margin-left: 10px;
+    }
+    .btn-orange-outline {
+      background-color: transparent !important;
+      color: #ff6600 !important;
+      border: 2px solid #ff6600 !important;
+      font-weight: bold;
+    }
+    .btn-orange-outline i {
+      margin-left: 4px;
+      color: #ff6600;
+    }
+    .section-box {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    h5 {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: .5rem;
+    }
+    table {
+      font-size: 0.9rem;
+    }
+    table thead {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+    table tbody tr:hover {
+      background-color: #ffe;
+    }
+    .chart-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 1rem auto;
+    }
+body {
+      background-color: #f5f5f5;
+      font-family: Vazir, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    .restaurant-brand {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .navbar-logo {
+      height: 40px;
+      margin-left: 10px;
+    }
+    .btn-orange-outline {
+      background-color: transparent !important;
+      color: #ff6600 !important;
+      border: 2px solid #ff6600 !important;
+      font-weight: bold;
+    }
+    .section-box {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .chart-box {
+      height: 300px;
+    }
+    .table thead {
+      background-color: #eee;
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-1">
+ <a href="https://github.com/sofrehpardaz" target="_blank" title="GitHub"><img  src="https://raw.githubusercontent.com/adko1396/sofrehpardaz/refs/heads/main/sofreh%20pardaz/logo/sofreh%20pardaz%20farsi%20-%202.png.png" alt="لوگو" class="navbar-logo"></a>
+        <h1 class="restaurant-brand"> سیستم مدیریت رستوران ( سفره‌پرداز ) | رستوران سفره‌پرداز </h1>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <a href="#" class="btn btn-outline-secondary btn-sm">صفحه اصلی</a>
+        <a href="#" class="btn btn-outline-primary btn-sm">داشبورد</a>
+        <button class="btn btn-orange-outline btn-sm d-flex align-items-center gap-2" disabled>
+          <i class="bi bi-person"></i><span>علی محمدی</span> |
+          <i class="bi bi-clock"></i> <span id="clock"></span> |
+          <i class="bi bi-briefcase-fill"></i> <span>نقش: مدیر</span>
+        </button>
+        <button class="btn btn-outline-danger btn-sm">خروج</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" style="margin-top: 7rem;">
+  <div class="section-box">
+    <h5>گزارش‌ها</h5>
+    <div class="mb-4 " >
+      <h6>فروش امروز: <span class="text-success">۱۰۰,۰۰۰ تومان</span></h6>
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr><th>شماره فاکتور</th><th>مبلغ</th><th>تاریخ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>#1001</td><td>۵۰,۰۰۰ تومان</td><td>۱۴۰۳/۰۳/۰۱</td></tr>
+          <tr><td>#1002</td><td>۵۰,۰۰۰ تومان</td><td>۱۴۰۳/۰۳/۰۱</td></tr>
+        </tbody>
+      </table>
+    </div>
+<hr>
+    <div class="mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6>فروش ماهانه: <span class="text-primary">۱,۰۰۰,۰۰۰ تومان</span></h6>
+        <input type="text" id="monthPicker" class="form-control" style="max-width: 180px;">
+      </div>
+      <div class="chart-box">
+        <canvas id="monthlyChart"></canvas>
+      </div>
+      <table class="table table-bordered text-center mt-3">
+        <thead>
+          <tr><th>شماره فاکتور</th><th>مبلغ</th><th>تاریخ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>#980</td><td>۲۰۰,۰۰۰ تومان</td><td>۱۴۰۳/۰۲/۱۵</td></tr>
+          <tr><td>#981</td><td>۸۰۰,۰۰۰ تومان</td><td>۱۴۰۳/۰۲/۲۰</td></tr>
+        </tbody>
+      </table>
+    </div>
+<hr>
+    <div class="mb-4">
+      <h6>فروش سالانه</h6>
+      <div class="chart-box">
+        <canvas id="yearlyChart"></canvas>
+      </div>
+    </div>
+<hr>
+    <div>
+      <h6>ساعات پرفروش</h6>
+      <div class="chart-box">
+        <canvas id="hourChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+ <footer class="text-center mt-5 py-4 bg-light border-top">
+  <div class="container">
+     <a href="https://github.com/sofrehpardaz" target="_blank" title="GitHub"><img style="width: 10rem; height: 2rem;" src="https://raw.githubusercontent.com/adko1396/sofrehpardaz/refs/heads/main/sofreh%20pardaz/logo/sofreh%20pardaz%20english%20-%201.png" alt="لوگو" class="mb-3"></a>
+   <h6 class="mb-2">سفره‌پرداز</h6>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <a href="https://github.com/adko1396" target="_blank" title="GitHub">
+          <i style="color: #222;" class="bi bi-github fs-4"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/persian-date@1.0.6/dist/persian-date.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('fa-IR');
+      const date = now.toLocaleDateString('fa-IR');
+      document.getElementById("clock").textContent = `${date} - ${time}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    $(document).ready(function() {
+      // فعال‌سازی تقویم فارسی
+      $('#monthPicker').persianDatepicker({
+        format: 'YYYY/MM',
+        viewMode: 'months',
+        initialValue: true,
+        autoClose: true,
+        toolbox: { calendarSwitch: { enabled: false } }
+      });
+
+      // نمودار فروش سالانه دایره‌ای (دایجست)
+      const ctxAnnual = document.getElementById('annualSalesChart').getContext('2d');
+      new Chart(ctxAnnual, {
+        type: 'doughnut',
+        data: {
+          labels: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور'],
+          datasets: [{
+            label: 'میزان فروش',
+            data: [300, 250, 200, 350, 400, 280],
+            backgroundColor: [
+              '#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff', '#ff9f40'
+            ]
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+
+      // نمودار ساعات پرفروش میله‌ای
+      const ctxPeak = document.getElementById('peakHoursChart').getContext('2d');
+      new Chart(ctxPeak, {
+        type: 'bar',
+        data: {
+          labels: ['8-10', '10-12', '12-14', '14-16', '16-18', '18-20', '20-22'],
+          datasets: [{
+            label: 'میزان فروش',
+            data: [15, 25, 35, 40, 30, 20, 10],
+            backgroundColor: '#36a2eb'
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    });
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/persian-date/dist/persian-date.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+<script>
+  $('#monthPicker').persianDatepicker({
+    format: 'YYYY/MM',
+    viewMode: 'month',
+    initialValue: false,
+    autoClose: true
+  });
+
+  const createPieChart = (id, labels, data) => {
+    new Chart(document.getElementById(id), {
+      type: 'pie',
+      data: {
+        labels,
+        datasets: [{
+          data,
+          backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0']
+        }]
+      }
+    });
+  };
+
+  const createBarChart = (id, labels, data) => {
+    new Chart(document.getElementById(id), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{
+          label: 'تعداد فروش',
+          data,
+          backgroundColor: '#36a2eb'
+        }]
+      }
+    });
+  };
+
+  createPieChart('monthlyChart', ['پیش‌غذا', 'غذا اصلی', 'دسر'], [300000, 500000, 200000]);
+  createPieChart('yearlyChart', ['فروردین', 'اردیبهشت', 'خرداد'], [1200000, 1500000, 1800000]);
+  createBarChart('hourChart', ['۱۰-۱۲', '۱۲-۱۴', '۱۴-۱۶', '۱۶-۱۸'], [10, 25, 15, 5]);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/persian-date/dist/persian-date.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+<script>
+  $('#monthPicker').persianDatepicker({
+    format: 'YYYY/MM',
+    viewMode: 'month',
+    initialValue: false,
+    autoClose: true
+  });
+
+  const createPieChart = (id, labels, data) => {
+    new Chart(document.getElementById(id), {
+      type: 'pie',
+      data: {
+        labels,
+        datasets: [{
+          data,
+          backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0']
+        }]
+      }
+    });
+  };
+
+  const createBarChart = (id, labels, data) => {
+    new Chart(document.getElementById(id), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{
+          label: 'تعداد فروش',
+          data,
+          backgroundColor: '#36a2eb'
+        }]
+      }
+    });
+  };
+
+  createPieChart('monthlyChart', ['پیش‌غذا', 'غذا اصلی', 'دسر'], [300000, 500000, 200000]);
+  createPieChart('yearlyChart', ['فروردین', 'اردیبهشت', 'خرداد'], [1200000, 1500000, 1800000]);
+  createBarChart('hourChart', ['۱۰-۱۲', '۱۲-۱۴', '۱۴-۱۶', '۱۶-۱۸'], [10, 25, 15, 5]);
+</script>
+</body>
+</html>

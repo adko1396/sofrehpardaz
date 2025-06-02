@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>منوی تلویزیون</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: Vazir, sans-serif;
+    }
+    .clock {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .menu-item img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .unavailable {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-4">
+    <div id="clock" class="clock"></div>
+
+    <h2 class="text-center my-4">منوی امروز</h2>
+<hr>
+
+    <div class="row g-4">
+      <!-- آیتم ۱ -->
+      <div class="col-md-4">
+        <div class="card menu-item shadow-sm">
+          <img src="http://gfxdownload.ir/uploads/posts/2023-08/iranian-food1.jpg" alt="چلو کباب">
+          <div class="card-body text-center">
+            <h5 class="card-title">چلو کباب</h5>
+<hr>
+
+            <p class="card-text text-success fw-bold">۱۸۰٬۰۰۰ تومان</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card menu-item shadow-sm">
+          <img src="http://gfxdownload.ir/uploads/posts/2023-08/iranian-food1.jpg" alt="چلو کباب">
+          <div class="card-body text-center">
+            <h5 class="card-title">چلو کباب</h5>
+            <p class="card-text text-success fw-bold">۱۸۰٬۰۰۰ تومان</p>
+          </div>
+        </div>
+      </div>      <div class="col-md-4">
+        <div class="card menu-item shadow-sm">
+          <img src="http://gfxdownload.ir/uploads/posts/2023-08/iranian-food1.jpg" alt="چلو کباب">
+          <div class="card-body text-center">
+            <h5 class="card-title">چلو کباب</h5>
+            <p class="card-text text-success fw-bold">۱۸۰٬۰۰۰ تومان</p>
+          </div>
+        </div>
+      </div>      <div class="col-md-4">
+        <div class="card menu-item shadow-sm">
+          <img src="http://gfxdownload.ir/uploads/posts/2023-08/iranian-food1.jpg" alt="چلو کباب">
+          <div class="card-body text-center">
+            <h5 class="card-title">چلو کباب</h5>
+            <p class="card-text text-success fw-bold">۱۸۰٬۰۰۰ تومان</p>
+          </div>
+        </div>
+      </div>
+      <!-- آیتم ۲ ناموجود -->
+      <div class="col-md-4">
+        <div class="card menu-item shadow-sm">
+          <img src="https://via.placeholder.com/300x200?text=قرمه+سبزی" alt="قرمه سبزی">
+          <div class="card-body text-center">
+            <h5 class="card-title">قرمه سبزی</h5>
+            <p class="card-text unavailable">ناموجود</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- آیتم ۳ -->
+      <div class="col-md-4">
+        <div class="card menu-item shadow-sm">
+          <img src="https://via.placeholder.com/300x200?text=زرشک+پلو" alt="زرشک پلو">
+          <div class="card-body text-center">
+            <h5 class="card-title">زرشک پلو با مرغ</h5>
+            <p class="card-text text-success fw-bold">۱۵۰٬۰۰۰ تومان</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- فوتر -->
+<footer class="text-center mt-5 py-4 bg-light border-top">
+  <div class="container">
+     <a href="https://github.com/sofrehpardaz" target="_blank" title="GitHub"><img style="width: 10rem; height: 2rem;" src="https://raw.githubusercontent.com/adko1396/sofrehpardaz/refs/heads/main/sofreh%20pardaz/logo/sofreh%20pardaz%20english%20-%201.png" alt="لوگو" class="mb-3"></a>
+   <h6 class="mb-2">سفره‌پرداز</h6>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <a href="https://github.com/adko1396" target="_blank" title="GitHub">
+          <i style="color: #222;" class="bi bi-github fs-4"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+  <!-- ساعت داینامیک -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+      const dateStr = now.toLocaleDateString('fa-IR', options);
+      const timeStr = now.toLocaleTimeString('fa-IR');
+      document.getElementById("clock").textContent = `امروز ${dateStr} - ساعت ${timeStr}`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
+</html>
