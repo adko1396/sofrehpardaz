@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>جستجوی فاکتور | رستوران سفره‌پرداز</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Vazir, sans-serif;
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .navbar {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    .restaurant-brand {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .navbar-logo {
+      height: 40px;
+      margin-left: 10px;
+    }
+    main {
+      flex-grow: 1;
+      padding-bottom: 2rem;
+      padding-top: 3rem;
+    }
+    footer {
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+    .btn-orange-outline {
+      background-color: transparent !important;
+      color: #ff6600 !important;
+      border: 2px solid #ff6600 !important;
+      font-weight: bold;
+    }
+    .btn-radius {
+      border-radius: 50px;
+      min-width: 110px;
+    }
+    table {
+      background: #fff;
+      text-align: center;
+    }
+    th, td {
+      vertical-align: middle !important;
+    }
+    form.search-form {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-check-label {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- نوار بالا -->
+  <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-1">
+ <a href="https://github.com/sofrehpardaz" target="_blank" title="GitHub"><img  src="https://raw.githubusercontent.com/adko1396/sofrehpardaz/refs/heads/main/sofreh%20pardaz/logo/sofreh%20pardaz%20farsi%20-%202.png.png" alt="لوگو" class="navbar-logo"></a>
+        <h1 class="restaurant-brand"> سیستم مدیریت رستوران ( سفره‌پرداز ) | رستوران سفره‌پرداز </h1>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <a href="#" class="btn btn-outline-secondary btn-sm">صفحه اصلی</a>
+        <a href="#" class="btn btn-outline-primary btn-sm">داشبورد</a>
+        <button class="btn btn-orange-outline btn-sm d-flex align-items-center gap-2" disabled>
+          <i class="bi bi-person"></i> علی محمدی |
+          <i class="bi bi-clock"></i> <span id="clock">--:--:--</span> |
+          <i class="bi bi-briefcase-fill"></i> نقش: صندوق
+        </button>
+        <button class="btn btn-outline-danger btn-sm">خروج</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-5 pt-5">
+    <h4 class="text-center mb-4">جستجوی فاکتور</h4>
+
+    <!-- فرم جستجو -->
+    <form class="search-form row g-3 align-items-center" onsubmit="event.preventDefault(); alert('جستجو انجام شد!');">
+      <div class="col-md-7 d-flex gap-2">
+<label class="form-check-label" for="searchByDate">شماره تماس :</label>
+        <input type="text" class="form-control" placeholder="شماره تلفن..." required />
+        <button type="submit" class="btn btn-primary btn-radius">جستجوی </button>
+      </div>
+    </form>
+
+    <!-- جدول فاکتورها -->
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>شماره مشتری</th>
+            <th>کد مشتری</th>
+            <th>تاریخ و ساعت</th>
+            <th>قیمت کل (تومان)</th>
+            <th>عملیات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>09121234567</td>
+            <td>REF123456</td>
+            <td>1402/02/10</td>
+            <td>450000</td>
+            <td><button class="btn btn-sm btn-info btn-radius" onclick="alert('نمایش فاکتور REF123456');">نمایش</button></td>
+          </tr>
+          <tr>
+            <td>09351234567</td>
+            <td>REF654321</td>
+            <td>1402/02/12</td>
+            <td>320000</td>
+            <td><button class="btn btn-sm btn-info btn-radius" onclick="alert('نمایش فاکتور REF654321');">نمایش</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- فوتر -->
+<footer class="text-center mt-5 py-4 bg-light border-top">
+  <div class="container">
+     <a href="https://github.com/sofrehpardaz" target="_blank" title="GitHub"><img style="width: 10rem; height: 2rem;" src="https://raw.githubusercontent.com/adko1396/sofrehpardaz/refs/heads/main/sofreh%20pardaz/logo/sofreh%20pardaz%20english%20-%201.png" alt="لوگو" class="mb-3"></a>
+   <h6 class="mb-2">سفره‌پرداز</h6>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <a href="https://github.com/adko1396" target="_blank" title="GitHub">
+          <i style="color: #222;" class="bi bi-github fs-4"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+  <!-- ساعت پویا -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('fa-IR');
+      document.getElementById('clock').textContent = time;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>
